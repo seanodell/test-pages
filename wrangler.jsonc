@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "test-pages",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "pages-db","database_id": "4dbcf6bf-796a-4820-bd48-d158579be32a"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "ASSETS",
+      "bucket_name": "pages-assets","preview_bucket_name": "pages-assets"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "OAUTH_KV","id": "182f35179c9a462c88b6536ed85ddd2e"
+    }
+  ],
+  "triggers": {
+    "crons": ["*/5 * * * *"]
+  }
+}
